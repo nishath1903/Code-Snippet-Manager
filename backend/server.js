@@ -11,7 +11,13 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+// Replace app.use(cors()) with this:
+app.use(cors({
+  origin: ["http://localhost:5173", /\.vercel\.app$/], // Allows local dev and any Vercel deployment
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 app.use(express.json());
 
 // Mount routes
