@@ -22,10 +22,12 @@ const EditSnippet = () => {
     }
   };
 
-  useEffect(() => {
-    fetchSnippet();
-  }, []);
-
+ useEffect(() => {
+    if (id) {
+      fetchSnippet();
+    }
+  }, [id]); // Adding [id] tells React: "If the ID changes or appears, fetch the data!"
+  
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 

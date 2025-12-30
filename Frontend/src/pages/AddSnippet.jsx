@@ -20,7 +20,7 @@ const AddSnippet = () => {
 
     try {
       await axios.post("/snippets", form);
-      navigate("/dashboard");
+      navigate("/");
     } catch (err) {
       alert("Failed to add snippet");
     }

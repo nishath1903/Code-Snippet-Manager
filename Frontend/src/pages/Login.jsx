@@ -19,9 +19,17 @@ const Login = () => {
 
     try {
       const res = await axios.post("/auth/login", form);
+     // 1. Save Token
       localStorage.setItem("token", res.data.token);
+      
+      // 2. Save User Info (Needed for profile/navbar names)
+      localStorage.setItem("user", JSON.stringify(res.data.user));
 
-      navigate("/dashboard");
+      alert("Login Successful!");
+
+      // 3. Navigate to the root (Home/Dashboard)
+      navigate("/");
+      window.location.reload();
     } catch (err) {
       alert(err.response?.data?.message || "Login Failed");
     }

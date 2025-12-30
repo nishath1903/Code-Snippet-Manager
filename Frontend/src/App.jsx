@@ -12,41 +12,43 @@ import Navbar from "./components/Navbar";
 function App() {
   return (
     <>
-      <Navbar />
+     <Navbar />
 
-      <Routes>
-        {/* Public Routes */}
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+<Routes>
+  {/* Public Routes */}
+  {/* Change the Login path to /login */}
+  <Route path="/login" element={<Login />} /> 
+  <Route path="/register" element={<Register />} />
 
-        {/* Protected Routes */}
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
+  {/* Protected Routes */}
+  {/* Change the Dashboard path to / (The Main Page) */}
+  <Route
+    path="/" 
+    element={
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    }
+  />
 
-        <Route
-          path="/add"
-          element={
-            <ProtectedRoute>
-              <AddSnippet />
-            </ProtectedRoute>
-          }
-        />
+  <Route
+    path="/add"
+    element={
+      <ProtectedRoute>
+        <AddSnippet />
+      </ProtectedRoute>
+    }
+  />
 
-        <Route
-          path="/edit/:id"
-          element={
-            <ProtectedRoute>
-              <EditSnippet />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
+  <Route
+    path="/edit/:id"
+    element={
+      <ProtectedRoute>
+        <EditSnippet />
+      </ProtectedRoute>
+    }
+  />
+</Routes>
     </>
   );
 }

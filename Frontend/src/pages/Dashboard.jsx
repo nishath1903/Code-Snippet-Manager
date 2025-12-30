@@ -18,14 +18,19 @@ const Dashboard = () => {
     fetchSnippets();
   }, []);
 
-  return (
+ return (
     <div className="page">
       <h2>Your Snippets</h2>
 
       <div className="snippet-grid">
-        {snippets.map((s) => (
-          <SnippetCard key={s._id} snippet={s} refresh={fetchSnippets} />
-        ))}
+        {/* Check if snippets exists and has items before mapping */}
+        {snippets && snippets.length > 0 ? (
+          snippets.map((s) => (
+            <SnippetCard key={s._id} snippet={s} refresh={fetchSnippets} />
+          ))
+        ) : (
+          <p>No snippets found. Click "Add New" to create one!</p>
+        )}
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
-    name: "",
+    username: "",
     email: "",
     password: ""
   });
@@ -33,9 +33,9 @@ const Register = () => {
 
       <form onSubmit={handleSubmit} className="auth-form">
         <input
-          name="name"
-          placeholder="Name"
-          value={form.name}
+          name="username"
+          placeholder="username"
+          value={form.username}
           onChange={handleChange}
           required
         />
